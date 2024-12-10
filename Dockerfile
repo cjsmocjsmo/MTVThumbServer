@@ -19,7 +19,7 @@ COPY mtvtables.py /usr/share/MTV/
 COPY utils.py /usr/share/MTV/
 COPY .env /usr/share/MTV/
 
-RUN python3 /usr/share/MTV/main.py
+RUN /usr/bin/python3 /usr/share/MTV/main.py
 
 FROM debian:bookworm
 
