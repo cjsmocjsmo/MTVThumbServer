@@ -29,6 +29,8 @@ RUN apt-get update && \
     apt-get install apache2 -y && \
     rm -rf /var/lib/apt/lists/*
 
+RUN rm /var/www/html/index.html
+
 COPY --from=builder /usr/share/MTV/thumbnails /var/www/html/
 
 EXPOSE 80
