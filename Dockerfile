@@ -5,8 +5,7 @@ RUN apt-get update && \
     apt-get dist-upgrade -y && \ 
     apt-get autoclean -y && \
     apt-get autoremove -y && \
-    apt-get install python3-pil python3-dotenv -y && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get install python3-pil python3-dotenv -y
 
 RUN mkdir /usr/share/MTV && \
     mkdir /usr/share/MTV/thumbnails
@@ -21,13 +20,18 @@ COPY .env /usr/share/MTV/
 
 RUN python3 main.py
 
-# Stage 2: Nginx stage
-FROM nginx:bookworm
+FROM debian:bookworm
 
-COPY --from=builder /usr/share/MTV/thumbnails /usr/share/nginx/html/
+RUN apt-get update && \
+    apt-get dist-upgrade -y && \ 
+    apt-get autoclean -y && \
+    apt-get autoremove -y && \
+    rm -rf /var/lib/apt/lists/*
 
-RUN rm /usr/share/nginx/html/index.html
+RUN rm /var/www/html/index.html
+
+COPY --from=builder /usr/share/MTV/thumbnails /var/www/html/
 
 EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["apache2ctl", "-D", "FOREGROUND"]
