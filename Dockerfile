@@ -26,6 +26,8 @@ FROM nginx:bookworm
 
 COPY --from=builder /usr/share/MTV/thumbnails /usr/share/nginx/html/
 
+RUN rm /usr/share/nginx/html/index.html
+
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
