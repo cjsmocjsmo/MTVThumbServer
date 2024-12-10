@@ -31,7 +31,7 @@ RUN apt-get update && \
 
 RUN rm /var/www/html/index.html
 
-COPY --from=builder /usr/share/MTV/thumbnails /var/www/html/
+COPY --from=builder /usr/share/MTV/thumbnails/*.jpg /var/www/html/
 
 EXPOSE 80
 
