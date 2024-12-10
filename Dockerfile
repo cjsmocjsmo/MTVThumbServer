@@ -26,6 +26,7 @@ RUN apt-get update && \
     apt-get dist-upgrade -y && \ 
     apt-get autoclean -y && \
     apt-get autoremove -y && \
+    apt-get install apache2 -y && \
     rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /usr/share/MTV/thumbnails /var/www/html/
