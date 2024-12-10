@@ -8,7 +8,8 @@ RUN apt-get update && \
     apt-get install python3-pil python3-dotenv -y
 
 RUN mkdir /usr/share/MTV && \
-    mkdir /usr/share/MTV/thumbnails
+    mkdir /usr/share/MTV/thumbnails && \
+    chmod 777 /usr/share/MTV/thumbnails
 
 WORKDIR /usr/share/MTV
 
@@ -18,7 +19,7 @@ COPY mtvtables.py /usr/share/MTV/
 COPY utils.py /usr/share/MTV/
 COPY .env /usr/share/MTV/
 
-RUN python3 main.py
+RUN python3 /usr/share/MTV/main.py
 
 FROM debian:bookworm
 
@@ -31,7 +32,7 @@ RUN apt-get update && \
 
 RUN rm /var/www/html/index.html
 
-COPY --from=builder /usr/share/MTV/thumbnails/*.jpg /var/www/html/
+COPY --from=builder /usr/share/MTV/thumbnails /var/www/html/
 
 EXPOSE 80
 
