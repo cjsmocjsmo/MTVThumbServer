@@ -9,22 +9,32 @@ import sqlite3
 from pprint import pprint
 
 class ProcessImages:
-    def __init__(self, imgs, conn, cursor):
+    def __init__(self, imgs, conn, cursor,
+                MTVT_DB_PATH,
+                MTVT_THUMBNAIL_PATH,
+                MTVT_POSTER_PATH,
+                MTVT_SERVER_ADDR,
+                MTVT_RAW_ADDR,
+                MTVT_SERVER_PORT):
         self.conn = conn
         self.cursor = cursor
         self.imglist = imgs
         self.search = re.compile("\s\(")
+        self.MTVT_DB_PATH = MTVT_DB_PATH
+        self.MTVT_THUMBNAIL_PATH = MTVT_THUMBNAIL_PATH
+        self.MTVT_POSTER_PATH = MTVT_POSTER_PATH
+        self.MTVT_SERVER_ADDR = MTVT_SERVER_ADDR
+        self.MTVT_RAW_ADDR = MTVT_RAW_ADDR
+        self.MTVT_SERVER_PORT = MTVT_SERVER_PORT
 
     def thumb_dir_check(self):
-        img_dir = os.getenv("MTVT_THUMBNAIL_PATH")
-        if not os.path.exists(img_dir):
-            subprocess.run(["mkdir", img_dir])
+        if not os.path.exists(self.MTVT_THUMBNAIL_PATH):
+            subprocess.run(["mkdir", self.MTVT_THUMBNAIL_PATH])
             print(f"Created directory")
 
     def create_thumbnail(self, img):
-        thumb_dir = os.getenv("MTVT_THUMBNAIL_PATH")
         fname = os.path.split(img)[1]
-        save_path = os.path.join(thumb_dir, fname)
+        save_path = os.path.join(self.MTVT_THUMBNAIL_PATH, fname)
 
         thumb = Image.open(img)
         thumb.thumbnail((300, 300))
@@ -48,15 +58,12 @@ class ProcessImages:
             print("No match")
 
     def get_thumb_path(self, img):
-        new_dir = os.getenv("MTVT_THUMBNAIL_PATH")
         fname = os.path.split(img)[1]
-        return os.path.join(new_dir, fname)
+        return os.path.join(self.MTVT_THUMBNAIL_PATH, fname)
 
     def get_http_thumb_path(self, img):
         fname = os.path.split(img)[1]
-        server_addr = os.getenv("MTVT_SERVER_ADDR")
-        server_port = "9999"
-        return f"{server_addr}:{server_port}/{fname}"
+        return f"{self.MTVT_SERVER_ADDR}:{self.MTVT_SERVER_PORT}/{fname}"
     
     def process(self):
         self.thumb_dir_check()
