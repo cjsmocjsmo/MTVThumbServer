@@ -7,8 +7,6 @@ import os
 import subprocess
 from pprint import pprint
 
-import utils
-
 
 CWD = os.getcwd()
 
