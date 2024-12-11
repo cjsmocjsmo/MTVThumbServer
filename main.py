@@ -15,7 +15,7 @@ MTVT_SERVER_PORT = "8082"
 
 class Main:
     def __init__(self):
-        self.conn = sqlite3.connect(os.getenv("MTVT_DB_PATH"))
+        self.conn = sqlite3.connect(MTVT_DB_PATH)
         self.cursor = self.conn.cursor()
 
     def create_tables(self):
