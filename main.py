@@ -32,7 +32,7 @@ class Main:
         except sqlite3.OperationalError as e:
             print(e)
 
-    def img_walk_dirs(dir):
+    def img_walk_dirs(self, dir):
         jpglist = []
         for root, dirs, files in os.walk(dir):
             for file in files:
