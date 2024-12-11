@@ -18,13 +18,6 @@ class Main:
         self.conn = sqlite3.connect(os.getenv("MTVT_DB_PATH"))
         self.cursor = self.conn.cursor()
 
-    def get_arch():
-        arch =  os.uname().machine
-        if arch == "armv7l":
-            return "32"
-        elif arch == "arm64" or arch == "x86_64":
-            return "64"
-
     def create_tables(self):
         try:
             self.cursor.execute("""CREATE TABLE IF NOT EXISTS movies (

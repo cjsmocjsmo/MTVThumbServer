@@ -7,12 +7,18 @@ import os
 import subprocess
 from pprint import pprint
 
-
 CWD = os.getcwd()
+
+def get_arch():
+        arch =  os.uname().machine
+        if arch == "armv7l":
+            return "32"
+        elif arch == "arm64" or arch == "x86_64":
+            return "64"
 
 def setup():
     main.Main().main()
-    arch = utils.get_arch()
+    arch = get_arch()
     
     if arch == "32":
         subprocess.run([
