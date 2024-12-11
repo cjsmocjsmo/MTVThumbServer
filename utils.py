@@ -4,12 +4,12 @@ import os
 # import subprocess
 # import sqlite3
 
-# def get_arch():
-#     arch =  os.uname().machine
-#     if arch == "armv7l":
-#         return "32"
-#     elif arch == "arm64" or arch == "x86_64":
-#         return "64"
+def get_arch():
+    arch =  os.uname().machine
+    if arch == "armv7l":
+        return "32"
+    elif arch == "arm64" or arch == "x86_64":
+        return "64"
     
 # def mtv_walk_dirs(directory):
 #     medialist = []
