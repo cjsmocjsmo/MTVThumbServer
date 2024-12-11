@@ -39,7 +39,7 @@ class Main:
     def main(self):
         self.create_tables()
 
-        images = utils.img_walk_dirs(os.getenv(MTVT_POSTER_PATH))
+        images = utils.img_walk_dirs(MTVT_POSTER_PATH)
         mtvimages.ProcessImages(
             images, 
             self.conn, 
