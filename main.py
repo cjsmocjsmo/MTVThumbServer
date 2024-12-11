@@ -4,8 +4,6 @@ import mtvimages
 import os
 from pprint import pprint
 import sqlite3
-import utils
-from dotenv import load_dotenv
 
 CWD = os.getcwd()
 MTVT_DB_PATH = "/usr/share/MTV/mtv.db"
@@ -17,10 +15,15 @@ MTVT_SERVER_PORT = "8082"
 
 class Main:
     def __init__(self):
-        load_dotenv()
         self.conn = sqlite3.connect(os.getenv("MTVT_DB_PATH"))
         self.cursor = self.conn.cursor()
-        
+
+    def get_arch():
+        arch =  os.uname().machine
+        if arch == "armv7l":
+            return "32"
+        elif arch == "arm64" or arch == "x86_64":
+            return "64"
 
     def create_tables(self):
         try:
@@ -35,11 +38,21 @@ class Main:
             )""")
         except sqlite3.OperationalError as e:
             print(e)
+
+    def img_walk_dirs(dir):
+        jpglist = []
+        for root, dirs, files in os.walk(dir):
+            for file in files:
+                fname = os.path.join(root, file)
+                ext = os.path.splitext(fname)[1]
+                if ext == ".jpg":
+                    jpglist.append(fname)
+        return jpglist
         
     def main(self):
         self.create_tables()
 
-        images = utils.img_walk_dirs(MTVT_POSTER_PATH)
+        images = self.img_walk_dirs(MTVT_POSTER_PATH)
         mtvimages.ProcessImages(
             images, 
             self.conn, 

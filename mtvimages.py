@@ -41,7 +41,6 @@ class ProcessImages:
         thumb.save(save_path)
         return save_path
 
-
     def get_img_id(self, imgstr):
         encoded_string = imgstr.encode('utf-8')
         md5_hash = hashlib.md5()
