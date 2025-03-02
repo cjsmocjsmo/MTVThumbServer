@@ -41,6 +41,9 @@ use crate::movcomedypage::ComedyPage;
 mod movdramapage;
 use crate::movdramapage::DramaPage;
 
+mod movfantasypage;
+use crate::movfantasypage::FantasyPage;
+
 fn main() {
 	console_error_panic_hook::set_once();
     mount_to_body(App);
@@ -67,6 +70,7 @@ fn App() -> impl IntoView {
                     <Route path=path!("/chucknorris") view=ChuckNorrisPage />
                     <Route path=path!("/comedy") view=ComedyPage />
                     <Route path=path!("/drama") view=DramaPage />
+                    <Route path=path!("/fantasy") view=FantasyPage />
                 </Routes>
             </main>
         </Router>
