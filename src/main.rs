@@ -26,6 +26,21 @@ use crate::movbrucewillispage::BruceWillisPage;
 mod movbuzzpage;
 use crate::movbuzzpage::BuzzPage;
 
+mod movcartoonspage;
+use crate::movcartoonspage::CartoonsPage;
+
+mod movcharliebrownpage;
+use crate::movcharliebrownpage::CharlieBrownPage;
+
+mod movchucknorrispage;
+use crate::movchucknorrispage::ChuckNorrisPage;
+
+mod movcomedypage;
+use crate::movcomedypage::ComedyPage;
+
+mod movdramapage;
+use crate::movdramapage::DramaPage;
+
 fn main() {
 	console_error_panic_hook::set_once();
     mount_to_body(App);
@@ -47,6 +62,11 @@ fn App() -> impl IntoView {
                     <Route path=path!("/brucelee") view=BruceLeePage />
                     <Route path=path!("/brucewillis") view=BruceWillisPage />
                     <Route path=path!("/buzz") view=BuzzPage />
+                    <Route path=path!("/cartoons") view=CartoonsPage />
+                    <Route path=path!("/charliebrown") view=CharlieBrownPage />
+                    <Route path=path!("/chucknorris") view=ChuckNorrisPage />
+                    <Route path=path!("/comedy") view=ComedyPage />
+                    <Route path=path!("/drama") view=DramaPage />
                 </Routes>
             </main>
         </Router>
