@@ -51,6 +51,12 @@ use crate::movjpages::JohnWaynePage;
 use crate::movjpages::JohnWickPage;
 use crate::movjpages::JurassicParkPage;
 
+mod movkpages;
+use crate::movkpages::KevinCostnerPage;
+use crate::movkpages::KingsmanPage;
+
+
+
 fn main() {
 	console_error_panic_hook::set_once();
     mount_to_body(App);
@@ -89,6 +95,8 @@ fn App() -> impl IntoView {
                     <Route path=path!("/johnwayne") view=JohnWaynePage />
                     <Route path=path!("/johnwick") view=JohnWickPage />
                     <Route path=path!("/jurassicpark") view=JurassicParkPage />
+                    <Route path=path!("/kevincostner") view=KevinCostnerPage />
+                    <Route path=path!("/kingsman") view=KingsmanPage />
                 </Routes>
             </main>
         </Router>
