@@ -55,7 +55,39 @@ mod movkpages;
 use crate::movkpages::KevinCostnerPage;
 use crate::movkpages::KingsmanPage;
 
+mod movlpages;
+use crate::movlpages::LegoPage;
 
+mod movmpages;
+use crate::movmpages::MenInBlackPage;
+use crate::movmpages::MinionsPage;
+use crate::movmpages::MiscPage;
+
+mod movnpages;
+use crate::movnpages::NicolasCagePage;
+
+mod movopages;
+use crate::movopages::OldiesPage;
+
+mod movppages;
+use crate::movppages::PandasPage;
+use crate::movppages::PiratesPage;
+
+mod movrpages;
+use crate::movrpages::RiddickPage;
+
+mod movspages;
+use crate::movspages::SciFiPage;
+use crate::movspages::StalonePage;
+use crate::movspages::StarTrekPage;
+use crate::movspages::StarWarsPage;
+use crate::movspages::SuperHeroesPage;
+
+mod movtpages;
+use crate::movtpages::TinkerBellPage;
+use crate::movtpages::TomCruisePage;
+use crate::movtpages::TransformersPage;
+use crate::movtpages::TremorsPage;
 
 fn main() {
 	console_error_panic_hook::set_once();
@@ -97,6 +129,25 @@ fn App() -> impl IntoView {
                     <Route path=path!("/jurassicpark") view=JurassicParkPage />
                     <Route path=path!("/kevincostner") view=KevinCostnerPage />
                     <Route path=path!("/kingsman") view=KingsmanPage />
+                    <Route path=path!("/lego") view=LegoPage />
+                    <Route path=path!("/meninblack") view=MenInBlackPage />
+                    <Route path=path!("/minions") view=MinionsPage />
+                    <Route path=path!("/misc") view=MiscPage />
+                    <Route path=path!("/nicolascage") view=NicolasCagePage />
+                    <Route path=path!("/oldies") view=OldiesPage />
+                    <Route path=path!("/pandas") view=PandasPage />
+                    <Route path=path!("/pirates") view=PiratesPage />
+                    <Route path=path!("/riddick") view=RiddickPage />
+                    <Route path=path!("/scifi") view=SciFiPage />
+                    <Route path=path!("/stalone") view=StalonePage />
+                    <Route path=path!("/startrek") view=StarTrekPage />
+                    <Route path=path!("/starwars") view=StarWarsPage />
+                    <Route path=path!("/superheros") view=SuperHeroesPage />
+                    <Route path=path!("/tinkerbell") view=TinkerBellPage />
+                    <Route path=path!("/tomcruise") view=TomCruisePage />
+                    <Route path=path!("/transformers") view=TransformersPage />
+                    <Route path=path!("/tremors") view=TremorsPage />
+
                 </Routes>
             </main>
         </Router>
