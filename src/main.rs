@@ -11,38 +11,45 @@ use crate::tvshowspage::TVShowsListPage;
 mod searchpage;
 use crate::searchpage::SearchPage;
 
-mod movactionpage;
-use crate::movactionpage::ActionPage;
+mod movapages;
+use crate::movapages::ActionPage;
+use crate::movapages::ArnoldPage;
 
-mod movarnoldpage;
-use crate::movarnoldpage::ArnoldPage;
+mod movbpages;
+use crate::movbpages::BruceLeePage;
+use crate::movbpages::BruceWillisPage;
+use crate::movbpages::BuzzPage;
 
-mod movbruceleepage;
-use crate::movbruceleepage::BruceLeePage;
+mod movcpages;
+use crate::movcpages::CartoonsPage;
+use crate::movcpages::CharlieBrownPage;
+use crate::movcpages::ChuckNorrisPage;
+use crate::movcpages::ComedyPage;
 
-mod movbrucewillispage;
-use crate::movbrucewillispage::BruceWillisPage;
+mod movdpages;
+use crate::movdpages::DramaPage;
+use crate::movdpages::DocumentaryPage;
 
-mod movbuzzpage;
-use crate::movbuzzpage::BuzzPage;
+mod movfpages;
+use crate::movfpages::FantasyPage;
 
-mod movcartoonspage;
-use crate::movcartoonspage::CartoonsPage;
+mod movgpages;
+use crate::movgpages::GhostBusterPage;
+use crate::movgpages::GodzillaPage;
 
-mod movcharliebrownpage;
-use crate::movcharliebrownpage::CharlieBrownPage;
+mod movhpages;
+use crate::movhpages::HarrisonFordPage;
+use crate::movhpages::HarryPotterPage;
+use crate::movhpages::HellBoyPage;
 
-mod movchucknorrispage;
-use crate::movchucknorrispage::ChuckNorrisPage;
+mod movipages;
+use crate::movipages::IndianaJonesPage;
 
-mod movcomedypage;
-use crate::movcomedypage::ComedyPage;
-
-mod movdramapage;
-use crate::movdramapage::DramaPage;
-
-mod movfantasypage;
-use crate::movfantasypage::FantasyPage;
+mod movjpages;
+use crate::movjpages::JamesBondPage;
+use crate::movjpages::JohnWaynePage;
+use crate::movjpages::JohnWickPage;
+use crate::movjpages::JurassicParkPage;
 
 fn main() {
 	console_error_panic_hook::set_once();
@@ -69,8 +76,19 @@ fn App() -> impl IntoView {
                     <Route path=path!("/charliebrown") view=CharlieBrownPage />
                     <Route path=path!("/chucknorris") view=ChuckNorrisPage />
                     <Route path=path!("/comedy") view=ComedyPage />
+                    <Route path=path!("/documentary") view=DocumentaryPage />
                     <Route path=path!("/drama") view=DramaPage />
                     <Route path=path!("/fantasy") view=FantasyPage />
+                    <Route path=path!("/ghostbuster") view=GhostBusterPage />
+                    <Route path=path!("/godzilla") view=GodzillaPage />
+                    <Route path=path!("/harrisonford") view=HarrisonFordPage />
+                    <Route path=path!("/harrypotter") view=HarryPotterPage />
+                    <Route path=path!("/hellboy") view=HellBoyPage />
+                    <Route path=path!("/indianajones") view=IndianaJonesPage />
+                    <Route path=path!("/jamesbond") view=JamesBondPage />
+                    <Route path=path!("/johnwayne") view=JohnWaynePage />
+                    <Route path=path!("/johnwick") view=JohnWickPage />
+                    <Route path=path!("/jurassicpark") view=JurassicParkPage />
                 </Routes>
             </main>
         </Router>

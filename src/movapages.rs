@@ -6,3 +6,10 @@ pub fn ActionPage() -> impl IntoView {
         <h1>"Action"</h1>
     }
 }
+
+#[component]
+pub fn ArnoldPage() -> impl IntoView {
+    view! {
+        <h1>"Arnold"</h1>
+    }
+}
