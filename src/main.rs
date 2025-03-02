@@ -88,6 +88,13 @@ use crate::movtpages::TinkerBellPage;
 use crate::movtpages::TomCruisePage;
 use crate::movtpages::TransformersPage;
 use crate::movtpages::TremorsPage;
+use crate::movtpages::TheRockPage;
+
+mod movvpages;
+use crate::movvpages::VanDamPage;
+
+mod movxpages;
+use crate::movxpages::XMenPage;
 
 fn main() {
 	console_error_panic_hook::set_once();
@@ -147,6 +154,9 @@ fn App() -> impl IntoView {
                     <Route path=path!("/tomcruise") view=TomCruisePage />
                     <Route path=path!("/transformers") view=TransformersPage />
                     <Route path=path!("/tremors") view=TremorsPage />
+                    <Route path=path!("/therock") view=TheRockPage />
+                    <Route path=path!("/vandam") view=VanDamPage />
+                    <Route path=path!("/xmen") view=XMenPage />
 
                 </Routes>
             </main>

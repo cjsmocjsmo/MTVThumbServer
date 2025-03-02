@@ -27,3 +27,10 @@ pub fn TremorsPage() -> impl IntoView {
         <h1>"Tremors Page"</h1>
     }
 }
+
+#[component]
+pub fn TheRockPage() -> impl IntoView {
+    view! {
+        <h1>"The Rock Page"</h1>
+    }
+}
