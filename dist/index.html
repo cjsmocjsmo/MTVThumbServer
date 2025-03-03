@@ -71,19 +71,29 @@
 		text-align: center;
 	}
 
+	.xmen-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 10px;
+	}
+
+	.xmen-item {
+		text-align: center;
+	}
+
 	.red {
     	color: red;
   	}
 </style>
 
 <html>
-	<head><link rel="modulepreload" href="/mtvleptos-dc2833955cbd47de.js" crossorigin="anonymous" integrity="sha384-aGGwYwA6eQSaAB/JvL7YTj684cIrpqzPDV6OiqgW44FXthfkseM9UQVslH/5cCKe"><link rel="preload" href="/mtvleptos-dc2833955cbd47de_bg.wasm" crossorigin="anonymous" integrity="sha384-41VVrBf3fHffziKuIetjwL6P7bmvdI5vR7VE5Bpjaf8zLEKMj3z6AVO6UskhvIKu" as="fetch" type="application/wasm"></head>
+	<head><link rel="modulepreload" href="/mtvleptos-7ac747f184f8124e.js" crossorigin="anonymous" integrity="sha384-PBHeviQmDJRFng6xfcD0+uhYG8/tbLUllrTQMwRs0sgLf3zVlx6dpCUhZeA7y3GZ"><link rel="preload" href="/mtvleptos-7ac747f184f8124e_bg.wasm" crossorigin="anonymous" integrity="sha384-ihQeRtRlRceMVYH3Nm/UunYia4sbUJYPr4mzFOzq9RwtDbYidxvo0vmImH6BGXA3" as="fetch" type="application/wasm"></head>
 	<title>MTV</title>
 	<body><body>
 
 <script type="module">
-import init, * as bindings from '/mtvleptos-dc2833955cbd47de.js';
-const wasm = await init({ module_or_path: '/mtvleptos-dc2833955cbd47de_bg.wasm' });
+import init, * as bindings from '/mtvleptos-7ac747f184f8124e.js';
+const wasm = await init({ module_or_path: '/mtvleptos-7ac747f184f8124e_bg.wasm' });
 
 
 window.wasmBindings = bindings;
