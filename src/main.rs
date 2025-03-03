@@ -53,7 +53,7 @@ use crate::movjpages::JurassicParkPage;
 
 mod movkpages;
 use crate::movkpages::KevinCostnerPage;
-use crate::movkpages::KingsmanPage;
+use crate::movkpages::KingsManPage;
 
 mod movlpages;
 use crate::movlpages::LegoPage;
@@ -135,7 +135,7 @@ fn App() -> impl IntoView {
                     <Route path=path!("/johnwick") view=JohnWickPage />
                     <Route path=path!("/jurassicpark") view=JurassicParkPage />
                     <Route path=path!("/kevincostner") view=KevinCostnerPage />
-                    <Route path=path!("/kingsman") view=KingsmanPage />
+                    <Route path=path!("/kingsman") view=KingsManPage />
                     <Route path=path!("/lego") view=LegoPage />
                     <Route path=path!("/meninblack") view=MenInBlackPage />
                     <Route path=path!("/minions") view=MinionsPage />
