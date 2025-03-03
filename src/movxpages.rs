@@ -1,5 +1,4 @@
 #![allow(non_snake_case)]
-#![allow(dead_code)]
 use leptos::{prelude::*, task::spawn_local};
 use reqwest::Error;
 use serde::Deserialize;
@@ -7,13 +6,6 @@ use serde::Deserialize;
 #[derive(Deserialize, Debug, Clone)]
 struct XMen {
     Name: String,
-    Year: String,
-    PosterAddr: String,
-    Size: String,
-    Path: String,
-    Idx: String,
-    MovId: String,
-    Catagory: String,
     HttpThumbPath: String,
 }
 
@@ -25,7 +17,6 @@ pub fn XMenPage() -> impl IntoView {
         match fetch_xmen().await {
             Ok(data) => {
                 log::info!("Fetched X-Men data: {:?}", data); // Debugging log
-                println!("{:?}", data); // Debugging log
                 set_xmen.set(data);
             },
             Err(err) => log::error!("Error fetching X-Men data: {:?}", err),
@@ -47,6 +38,5 @@ pub fn XMenPage() -> impl IntoView {
 async fn fetch_xmen() -> Result<Vec<XMen>, Error> {
     let response = reqwest::get("http://10.0.4.41:7777/xmen").await?;
     let xmen: Vec<XMen> = response.json().await?;
-    println!("{:?}", xmen);
     Ok(xmen)
 }
