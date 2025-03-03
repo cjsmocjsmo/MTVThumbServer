@@ -45,7 +45,7 @@ pub fn MovCatListPage() -> impl IntoView {
                 <a class="main-mainDivItem" href="/superheros">"Super Heros"</a>
                 <a class="main-mainDivItem" href="/tinkerbell">"Tinker Bell"</a>
                 <a class="main-mainDivItem" href="/tomcruise">"Tom Cruise"</a>
-                <a class="main-mainDivItem" href="/transformers">"Transformersw"</a>
+                <a class="main-mainDivItem" href="/transformers">"Transformers"</a>
                 <a class="main-mainDivItem" href="/tremors">"Tremors"</a>
                 <a class="main-mainDivItem" href="/therock">"The Rock"</a>
                 <a class="main-mainDivItem" href="/vandam">"Van Dam"</a>
