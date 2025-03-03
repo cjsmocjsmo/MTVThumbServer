@@ -4,39 +4,39 @@ use reqwest::Error;
 use serde::Deserialize;
 
 #[derive(Deserialize, Debug, Clone)]
-struct XMen {
+struct Infos {
     Name: String,
     HttpThumbPath: String,
 }
 
 #[component]
 pub fn XMenPage() -> impl IntoView {
-    let (xmen, set_xmen) = signal(Vec::new());
+    let (infos, set_infos) = signal(Vec::new());
 
     spawn_local(async move {
         match fetch_xmen().await {
             Ok(data) => {
-                log::info!("Fetched X-Men data: {:?}", data); // Debugging log
-                set_xmen.set(data);
+                log::info!("Fetched infos data: {:?}", data); // Debugging log
+                set_infos.set(data);
             },
-            Err(err) => log::error!("Error fetching X-Men data: {:?}", err),
+            Err(err) => log::error!("Error fetching infos data: {:?}", err),
         }
     });
 
     view! {
-        <div class="xmen-grid">
-            {move || xmen.get().iter().map(|xman| view! {
-                <div class="xmen-item">
-                    <img src={xman.HttpThumbPath.clone()} alt={xman.Name.clone()} />
-                    <p>{xman.Name.clone()}</p>
+        <div class="mov-grid">
+            {move || infos.get().iter().map(|info| view! {
+                <div class="mov-item">
+                    <img src={info.HttpThumbPath.clone()} alt={info.Name.clone()} />
+                    <p>{info.Name.clone()}</p>
                 </div>
             }).collect_view()}
         </div>
     }
 }
 
-async fn fetch_xmen() -> Result<Vec<XMen>, Error> {
+async fn fetch_xmen() -> Result<Vec<Infos>, Error> {
     let response = reqwest::get("http://10.0.4.41:7777/xmen").await?;
-    let xmen: Vec<XMen> = response.json().await?;
+    let xmen: Vec<Infos> = response.json().await?;
     Ok(xmen)
 }
