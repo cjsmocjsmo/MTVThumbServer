@@ -81,7 +81,7 @@ use crate::movspages::SciFiPage;
 use crate::movspages::StalonePage;
 use crate::movspages::StarTrekPage;
 use crate::movspages::StarWarsPage;
-use crate::movspages::SuperHeroesPage;
+use crate::movspages::SuperHerosPage;
 
 mod movtpages;
 use crate::movtpages::TinkerBellPage;
@@ -149,7 +149,7 @@ fn App() -> impl IntoView {
                     <Route path=path!("/stalone") view=StalonePage />
                     <Route path=path!("/startrek") view=StarTrekPage />
                     <Route path=path!("/starwars") view=StarWarsPage />
-                    <Route path=path!("/superheros") view=SuperHeroesPage />
+                    <Route path=path!("/superheros") view=SuperHerosPage />
                     <Route path=path!("/tinkerbell") view=TinkerBellPage />
                     <Route path=path!("/tomcruise") view=TomCruisePage />
                     <Route path=path!("/transformers") view=TransformersPage />

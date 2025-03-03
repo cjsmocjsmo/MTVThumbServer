@@ -34,7 +34,6 @@ pub fn TinkerBellPage() -> impl IntoView {
         </div>
     }
 }
-
 async fn fetch_tinkerbell() -> Result<Vec<Infos>, Error> {
     let response = reqwest::get("http://10.0.4.41:7777/tinkerbell").await?;
     let tinkerbell: Vec<Infos> = response.json().await?;
@@ -66,7 +65,6 @@ pub fn TomCruisePage() -> impl IntoView {
         </div>
     }
 }
-
 async fn fetch_tomcruise() -> Result<Vec<Infos>, Error> {
     let response = reqwest::get("http://10.0.4.41:7777/tomcruise").await?;
     let tomcruise: Vec<Infos> = response.json().await?;
@@ -98,7 +96,6 @@ pub fn TransformersPage() -> impl IntoView {
         </div>
     }
 }
-
 async fn fetch_transformers() -> Result<Vec<Infos>, Error> {
     let response = reqwest::get("http://10.0.4.41:7777/transformers").await?;
     let transformers: Vec<Infos> = response.json().await?;
@@ -130,7 +127,6 @@ pub fn TremorsPage() -> impl IntoView {
         </div>
     }
 }
-
 async fn fetch_tremors() -> Result<Vec<Infos>, Error> {
     let response = reqwest::get("http://10.0.4.41:7777/tremors").await?;
     let tremors: Vec<Infos> = response.json().await?;
@@ -162,7 +158,6 @@ pub fn TheRockPage() -> impl IntoView {
         </div>
     }
 }
-
 async fn fetch_therock() -> Result<Vec<Infos>, Error> {
     let response = reqwest::get("http://10.0.4.41:7777/therock").await?;
     let therock: Vec<Infos> = response.json().await?;

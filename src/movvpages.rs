@@ -72,7 +72,6 @@ pub fn VanDamPage() -> impl IntoView {
         </div>
     }
 }
-
 async fn fetch_vandam() -> Result<Vec<Infos>, Error> {
     let response = reqwest::get("http://10.0.4.41:7777/vandam").await?;
     let vandam: Vec<Infos> = response.json().await?;

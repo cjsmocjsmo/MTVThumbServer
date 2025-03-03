@@ -34,7 +34,6 @@ pub fn XMenPage() -> impl IntoView {
         </div>
     }
 }
-
 async fn fetch_xmen() -> Result<Vec<Infos>, Error> {
     let response = reqwest::get("http://10.0.4.41:7777/xmen").await?;
     let xmen: Vec<Infos> = response.json().await?;
